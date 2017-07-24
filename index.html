@@ -45,7 +45,7 @@
 	}
 	function time()
 	{  
- 		count = setInterval(countUpAdd,1000);
+ 		count = setInterval(countUpAdd,500);
 		
 	}
 	function countUpAdd()
@@ -62,7 +62,7 @@
 			{
 				document.getElementById("train").style.marginLeft = "14.5cm";
 				document.getElementById("train").style.transform = "rotate(-40deg)";
-				countUp = setInterval(upRoad,1000);
+				countUp = setInterval(upRoad,500);
 				function upRoad()
 				{
 					upTop = upTop - 0.8;
@@ -73,7 +73,7 @@
 			{
 				document.getElementById("train").style.marginLeft = "15cm";
 				document.getElementById("train").style.transform = "rotate(39deg)";
-				countDown = setInterval(downRoad,1000);
+				countDown = setInterval(downRoad,500);
 				function downRoad()
 				{  
  					downTop = downTop + 0.8;
@@ -91,7 +91,7 @@
 		document.getElementById("arrow1").style.visibility = "visible";
 		document.getElementById("arrow2").style.visibility = "hidden";
 		path = 1;
-		countDead = setInterval(dead,1000);
+		countDead = setInterval(dead,500);
 		function dead()
 		{
 			deadTime--;
@@ -106,7 +106,7 @@
 		document.getElementById("arrow1").style.visibility = "hidden";
 		document.getElementById("arrow2").style.visibility = "visible";
 		path = 2;
-		countDodge = setInterval(dodge,1000);
+		countDodge = setInterval(dodge,500);
 		function dodge()
 		{
 			dodgeTime--;
