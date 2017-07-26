@@ -23,19 +23,19 @@
 	<div id = "outSide" class = "out">
 	</div>
 
-	<script type="text/javascript" language="javascript" src="output.js" charset="big5">
+	<script>
 		var count;
 		var countUp;
 		var countDead;
 		var countDown;
 		var countDodge;
 		var move = 0;
-		var chooseTime = 14;
+		var chooseTime = 33;
 		var path = 1;
 		var upTop = 0;
 		var downTop = 0;
-		var deadTime = 15;
-		var dodgeTime = 16;
+		var deadTime = 34;
+		var dodgeTime = 35;
 
 		function train()
 		{
@@ -43,23 +43,21 @@
 		}
 		function time()
 		{  
-			count = setInterval(countUpAdd,500);
+			count = setInterval(countUpAdd,100);
 
 		}
 		function countUpAdd()
 		{ 
-			move = move + 1;
+			move = move + 0.5;
 			document.getElementById("train").style.marginLeft = move + "cm";
 			chooseTime--;
 			if(chooseTime === 0)
 			{
-				document.getElementById("up").style.visibility = "hidden";
-				document.getElementById("down").style.visibility = "hidden";
 				if(path === 1)
 				{
 					document.getElementById("train").style.marginLeft = "14.5cm";
 					document.getElementById("train").style.transform = "rotate(-40deg)";
-					countUp = setInterval(upRoad,500);
+					countUp = setInterval(upRoad,100);
 					function upRoad()
 					{
 						upTop = upTop - 0.8;
@@ -70,7 +68,7 @@
 				{
 					document.getElementById("train").style.marginLeft = "15cm";
 					document.getElementById("train").style.transform = "rotate(39deg)";
-					countDown = setInterval(downRoad,500);
+					countDown = setInterval(downRoad,100);
 					function downRoad()
 					{  
 						downTop = downTop + 0.8;
@@ -88,7 +86,7 @@
 			document.getElementById("arrow1").style.visibility = "visible";
 			document.getElementById("arrow2").style.visibility = "hidden";
 			path = 1;
-			countDead = setInterval(dead,500);
+			countDead = setInterval(dead,100);
 			function dead()
 			{
 				deadTime--;
@@ -103,7 +101,7 @@
 			document.getElementById("arrow1").style.visibility = "hidden";
 			document.getElementById("arrow2").style.visibility = "visible";
 			path = 2;
-			countDodge = setInterval(dodge,500);
+			countDodge = setInterval(dodge,100);
 			function dodge()
 			{
 				dodgeTime--;
@@ -140,7 +138,7 @@
 	{
 		display: none;
 		position: absolute;
-		top: 200px;
+		top: 100px;
 		left: 25%;	
 		width: 50%;
 		height: 50%;
