@@ -1,132 +1,130 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	</head>
-	<body style="background-color:powderblue;">
+<head>
+</head>
+<body style="background-color:powderblue;">
 	
 	<img id = "rail" src = "rail.png" style = "position: absolute; left: -0.3cm; top: 4.5cm;">
-	<img id = "arrow1" src = "http://i.imgur.com/9KzKFjB.png" style = "position: absolute; left: 9cm; top: 4.5cm;visibility: hidden;">
-	<img id = "arrow2" src = "http://i.imgur.com/27tDomp.png" style = "position: absolute; left: 9cm; top: 13cm; visibility: hidden;">
-	<img id = "person" src = "http://i.imgur.com/ymR7an2.png" style = "position: absolute; left: 12.5cm; top: 6cm; display: none;">
-	<img id = "cat" src = "http://i.imgur.com/ZH5CwiI.png" style = "position: absolute; left: 12cm; top: 11cm; display: none;">
-	<img id = "blood" src = "http://i.imgur.com/WiDgiP8.png" style = "position: absolute; left: 12.5cm; top: 6cm; display: none;">
-	<img id = "train" src = "http://i.imgur.com/dOAOJE2.png" style = "position: absolute; left: -8cm; top: 5cm;">
+	<img id = "arrow1" src = "arrow1.png" style = "position: absolute; left: 9cm; top: 4.5cm;visibility: hidden;">
+	<img id = "arrow2" src = "arrow2.png" style = "position: absolute; left: 9cm; top: 13cm; visibility: hidden;">
+	<img id = "person" src = "person.png" style = "position: absolute; left: 12.5cm; top: 6cm; display: none;">
+	<img id = "cat" src = "cat.png" style = "position: absolute; left: 12cm; top: 11cm; display: none;">
+	<img id = "blood" src = "blood.png" style = "position: absolute; left: 12.5cm; top: 6cm; display: none;">
+	<img id = "train" src = "train.png" style = "position: absolute; left: -8cm; top: 5cm;">
 	<p id = "word" style = "position: absolute; left: 19cm; top: 10cm; display: none;">嘻嘻</p>
 	
-	<button id = start onclick = "document.getElementById('inSide').style.display = 'block';document.getElementById('outSide').style.display = 'block'" style = "position: absolute; left: 6cm; top: 7cm; width: 3.5cm; height: 2.5cm; ">Start
-	</button>
+	<button id = start onclick = "document.getElementById('inSide').style.display = 'block';document.getElementById('outSide').style.display = 'block'" style = "position: absolute; left: 6cm; top: 7cm; width: 3.5cm; height: 2.5cm; ">Start</button>
 	<div id = "inSide" class = "in">火車即將經過岔路而妳的面前有一根控制桿，如果什麼都不做的話火車會輾過一位即將轉職為魔法師的李姓男子，如果使用控制桿的話會輾過一隻可愛的貓咪，妳會怎麼做呢啾咪0.<
-	<img id = "control" src = "http://i.imgur.com/jtDNaSk.png" style = "position: absolute; left: 1.5cm; top: 4cm;">
-	<img id = "control2" src = "http://i.imgur.com/iComtkn.png" style = "position: absolute; left: 1.5cm; top: 4cm; display: none;">
-	<button id = "up" onclick= "up(); same(); time()" style = "position: absolute; left: 2.5cm; top: 3cm; float: left;">不使用</button>
-	<button id = "down" onclick= "down(); same(); time()" style = "position: absolute; left: 1cm; top: 3cm; float: left;">使用</button>
+		<img id = "control" src = "control.png" style = "position: absolute; left: 1.5cm; top: 4cm;">
+		<img id = "control2" src = "control2.png" style = "position: absolute; left: 1.5cm; top: 4cm; display: none;">
+		<button id = "up" onclick= "up(); same(); time()" style = "position: absolute; left: 2.5cm; top: 3cm; float: left;">不使用</button>
+		<button id = "down" onclick= "down(); same(); time()" style = "position: absolute; left: 1cm; top: 3cm; float: left;">使用</button>
 	</div>
 	<div id = "outSide" class = "out">
-
 	</div>
 
 	<script>
-	var count;
-	var countUp;
-	var countDead;
-	var countDown;
-	var countDodge;
-	var move = 0;
-	var chooseTime = 14;
-	var path = 1;
-	var upTop = 0;
-	var downTop = 0;
-	var deadTime = 15;
-	var dodgeTime = 16;
-	
-	function train()
-	{
-		document.getElementById("train").style.marginLeft = "0cm";	
-	}
-	function time()
-	{  
- 		count = setInterval(countUpAdd,500);
-		
-	}
-	function countUpAdd()
-	{ 
-		move = move + 1;
-		document.getElementById("train").style.marginLeft = move + "cm";
-		chooseTime--;
-		if(chooseTime === 0)
+		var count;
+		var countUp;
+		var countDead;
+		var countDown;
+		var countDodge;
+		var move = 0;
+		var chooseTime = 14;
+		var path = 1;
+		var upTop = 0;
+		var downTop = 0;
+		var deadTime = 15;
+		var dodgeTime = 16;
+
+		function train()
 		{
-			document.getElementById("up").style.visibility = "hidden";
-			document.getElementById("down").style.visibility = "hidden";
-			//clearInterval(count);
-			if(path === 1)
+			document.getElementById("train").style.marginLeft = "0cm";	
+		}
+		function time()
+		{  
+			count = setInterval(countUpAdd,500);
+
+		}
+		function countUpAdd()
+		{ 
+			move = move + 1;
+			document.getElementById("train").style.marginLeft = move + "cm";
+			chooseTime--;
+			if(chooseTime === 0)
 			{
-				document.getElementById("train").style.marginLeft = "14.5cm";
-				document.getElementById("train").style.transform = "rotate(-40deg)";
-				countUp = setInterval(upRoad,500);
-				function upRoad()
+				document.getElementById("up").style.visibility = "hidden";
+				document.getElementById("down").style.visibility = "hidden";
+				if(path === 1)
 				{
-					upTop = upTop - 0.8;
-					document.getElementById("train").style.marginTop = upTop + "cm";
-				}			
+					document.getElementById("train").style.marginLeft = "14.5cm";
+					document.getElementById("train").style.transform = "rotate(-40deg)";
+					countUp = setInterval(upRoad,500);
+					function upRoad()
+					{
+						upTop = upTop - 0.8;
+						document.getElementById("train").style.marginTop = upTop + "cm";
+					}			
+				}
+				else
+				{
+					document.getElementById("train").style.marginLeft = "15cm";
+					document.getElementById("train").style.transform = "rotate(39deg)";
+					countDown = setInterval(downRoad,500);
+					function downRoad()
+					{  
+						downTop = downTop + 0.8;
+						document.getElementById("train").style.marginTop = downTop + "cm";
+					}
+				}
 			}
 			else
 			{
-				document.getElementById("train").style.marginLeft = "15cm";
-				document.getElementById("train").style.transform = "rotate(39deg)";
-				countDown = setInterval(downRoad,500);
-				function downRoad()
-				{  
- 					downTop = downTop + 0.8;
-					document.getElementById("train").style.marginTop = downTop + "cm";
+				return " ";
+			}
+		}
+		function up()
+		{
+			document.getElementById("arrow1").style.visibility = "visible";
+			document.getElementById("arrow2").style.visibility = "hidden";
+			path = 1;
+			countDead = setInterval(dead,500);
+			function dead()
+			{
+				deadTime--;
+				if(deadTime === 0)
+				{
+					document.getElementById("blood").style.display = "block";
 				}
 			}
 		}
-		else
+		function down()
 		{
-			return " ";
-		}
-	}
-	function up()
-	{
-		document.getElementById("arrow1").style.visibility = "visible";
-		document.getElementById("arrow2").style.visibility = "hidden";
-		path = 1;
-		countDead = setInterval(dead,500);
-		function dead()
-		{
-			deadTime--;
-			if(deadTime === 0)
+			document.getElementById("arrow1").style.visibility = "hidden";
+			document.getElementById("arrow2").style.visibility = "visible";
+			path = 2;
+			countDodge = setInterval(dodge,500);
+			function dodge()
 			{
-				document.getElementById("blood").style.display = "block";
+				dodgeTime--;
+				if(dodgeTime === 0)
+				{
+					document.getElementById("cat").style.marginLeft = "6cm";
+					document.getElementById("word").style.display = "block";
+				}
 			}
 		}
-	}
-	function down()
-	{
-		document.getElementById("arrow1").style.visibility = "hidden";
-		document.getElementById("arrow2").style.visibility = "visible";
-		path = 2;
-		countDodge = setInterval(dodge,500);
-		function dodge()
+		function same()
 		{
-			dodgeTime--;
-			if(dodgeTime === 0)
-			{
-				document.getElementById("cat").style.marginLeft = "6cm";
-				document.getElementById("word").style.display = "block";
-			}
+			document.getElementById('inSide').style.display = 'none';
+			document.getElementById('outSide').style.display = 'none';
+			document.getElementById("start").style.display = "none";
+			document.getElementById("person").style.display = "block";
+			document.getElementById("cat").style.display = "block";
 		}
-	}
-	function same()
-	{
-		document.getElementById('inSide').style.display = 'none'; document.getElementById('outSide').style.display = 'none';
-		document.getElementById("start").style.display = "none";
-		document.getElementById("person").style.display = "block";
-		document.getElementById("cat").style.display = "block";
-	}
 	</script>	
-	</body>
-	<style>
+</body>
+<style>
 	.out
 	{
 		display: none;
@@ -152,5 +150,5 @@
 		z-index: 1;
 	}
 	
-	</style>
+</style>
 </html>
