@@ -26,33 +26,33 @@ function countUpAdd()
 	chooseTime--;
 	if(chooseTime === 0)
 	{
-	if(path === 1)
+		if(path === 1)
+		{
+			document.getElementById("train").style.marginLeft = "14.5cm";
+			document.getElementById("train").style.transform = "rotate(-40deg)";
+			countUp = setInterval(upRoad,100);
+			function upRoad()
+			{
+				upTop = upTop - 0.8;
+				document.getElementById("train").style.marginTop = upTop + "cm";
+			}			
+		}
+		else
+		{
+			document.getElementById("train").style.marginLeft = "15cm";
+			document.getElementById("train").style.transform = "rotate(39deg)";
+			countDown = setInterval(downRoad,100);
+			function downRoad()
+			{  
+				downTop = downTop + 0.8;
+				document.getElementById("train").style.marginTop = downTop + "cm";
+			}
+		}
+	}
+	else
 	{
-	document.getElementById("train").style.marginLeft = "14.5cm";
-	document.getElementById("train").style.transform = "rotate(-40deg)";
-	countUp = setInterval(upRoad,100);
-	function upRoad()
-	{
-	upTop = upTop - 0.8;
-	document.getElementById("train").style.marginTop = upTop + "cm";
-}			
-}
-else
-{
-	document.getElementById("train").style.marginLeft = "15cm";
-	document.getElementById("train").style.transform = "rotate(39deg)";
-	countDown = setInterval(downRoad,100);
-	function downRoad()
-	{  
-	downTop = downTop + 0.8;
-	document.getElementById("train").style.marginTop = downTop + "cm";
-}
-}
-}
-else
-{
-	return " ";
-}
+		return " ";
+	}
 }
 function up()
 {
@@ -62,12 +62,12 @@ function up()
 	countDead = setInterval(dead,100);
 	function dead()
 	{
-	deadTime--;
-	if(deadTime === 0)
-	{
-	document.getElementById("blood").style.display = "block";
-}
-}
+		deadTime--;
+		if(deadTime === 0)
+		{
+			document.getElementById("blood").style.display = "block";
+		}
+	}
 }
 function down()
 {
@@ -77,13 +77,13 @@ function down()
 	countDodge = setInterval(dodge,100);
 	function dodge()
 	{
-	dodgeTime--;
-	if(dodgeTime === 0)
-	{
-	document.getElementById("cat").style.marginLeft = "6cm";
-	document.getElementById("word").style.display = "block";
-}
-}
+		dodgeTime--;
+		if(dodgeTime === 0)
+		{
+			document.getElementById("cat").style.marginLeft = "6cm";
+			document.getElementById("word").style.display = "block";
+		}
+	}
 }
 function same()
 {

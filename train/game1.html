@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8" /> 
+</head>
+<body style = "background-color:powderblue;">
+	
+	<img id = "rail" src = "png\rail.png" style = "position: absolute; left: -0.3cm; top: 4.5cm;">
+	<img id = "arrow1" src = "png\arrow1.png" style = "position: absolute; left: 9cm; top: 4.5cm;visibility: hidden;">
+	<img id = "arrow2" src = "png\arrow2.png" style = "position: absolute; left: 9cm; top: 13cm; visibility: hidden;">
+	<img id = "person" src = "png\person.png" style = "position: absolute; left: 12.5cm; top: 6cm; display: none;">
+	<img id = "cat" src = "png\cat.png" style = "position: absolute; left: 12cm; top: 11cm; display: none;">
+	<img id = "blood" src = "png\blood.png" style = "position: absolute; left: 12.5cm; top: 6cm; display: none;">
+	<img id = "train" src = "png\train.png" style = "position: absolute; left: -8cm; top: 5cm;">
+	<p id = "word" style = "position: absolute; left: 19cm; top: 10cm; display: none;">嘻嘻</p>
+	
+	<button id = "start" onclick = "document.getElementById('inSide').style.display = 'block';document.getElementById('outSide').style.display = 'block'" style = "position: absolute; left: 6cm; top: 7cm; width: 3.5cm; height: 2.5cm; ">Start</button>
+	<div id = "inSide" class = "in">火車即將經過岔路而妳的面前有一根控制桿，如果什麼都不做的話火車會輾過一位即將轉職為魔法師的李姓男子，如果使用控制桿的話會輾過一隻可愛的貓咪，妳會怎麼做呢啾咪0.<
+		<img id = "control" src = "png\control.png" style = "position: absolute; left: 1.5cm; top: 4cm;">
+		<img id = "control2" src = "png\control2.png" style = "position: absolute; left: 1.5cm; top: 4cm; display: none;">
+		<button id = "up" onclick= "up(); same(); time()" style = "position: absolute; left: 2.5cm; top: 3cm; float: left;">不使用</button>
+		<button id = "down" onclick= "down(); same(); time()" style = "position: absolute; left: 1cm; top: 3cm; float: left;">使用</button>
+	</div>
+	<div id = "outSide" class = "out">
+	</div>
+
+	<script src = "game1.js"></script>
+</body>
+<style>
+	.out
+	{
+		display: none;
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		opacity: 0.8;
+	}
+	.in
+	{
+		display: none;
+		position: absolute;
+		top: 100px;
+		left: 25%;	
+		width: 50%;
+		height: 50%;
+		padding: 10px;
+		border: 10px solid orange;
+		background-color: white;
+		z-index: 1;
+	}
+	
+</style>
+</html>
