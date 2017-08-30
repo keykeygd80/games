@@ -1,7 +1,7 @@
 var c = document.getElementById("canvas");
 var ctx = c.getContext("2d");
 var cell = [];
-var newCell = [];
+var newcell = [];
 var sideRow = 30;
 var sideCol = 30;
 ctx.strokeStyle = "#000000";
@@ -20,6 +20,14 @@ function array()
 		for (var j = 0; j < sideCol; j++)
 		{
 			cell[i][j] = 0;
+		}
+	}
+	for (var i = 0; i < sideRow; i++) 
+	{
+		newcell[i] = [];
+		for (var j = 0; j < sideCol; j++)
+		{
+			newcell[i][j] = 0;
 		}
 	}
 	begin();
@@ -42,8 +50,16 @@ function begin()
 			}	
 		}
 	}
-	setInterval(change, 300);
+	setInterval(change, 500);
+	// loop();
 }
+
+// function loop()
+// {
+// 	change();
+// 	draw();
+// 	requestAnimationFrame(loop);
+// }
 
 function change()
 {
@@ -59,28 +75,35 @@ function change()
 			{
 				if (nextTo < 2) 
 				{
-					cell[i][j] = 0;
+					newcell[i][j] = 0;
 				}
 				else if (nextTo > 3)
 				{
-					cell[i][j] = 0;
+					newcell[i][j] = 0;
 				}
 				else
 				{
-					cell[i][j] = 1;
+					newcell[i][j] = 1;
 				}
 			}
 			else if (cell[i][j] === 0)
 			{
 				if (nextTo === 3) 
 				{
-					cell[i][j] = 1;
+					newcell[i][j] = 1;
 				}
 				else
 				{
-					cell[i][j] = 0;
+					newcell[i][j] = 0;
 				}
 			}
+		}
+	}
+	for (var i = 1; i < sideRow - 1; i++) 
+	{
+		for (var j = 1; j < sideCol - 1; j++)
+		{
+			cell[i][j] = newcell[i][j];
 		}
 	}
 	draw();
