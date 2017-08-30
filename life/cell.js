@@ -10,6 +10,7 @@ ctx.strokeRect(20, 20, 560, 560);
 window.onload = function()
 {
 	array();
+	begin();
 }
 
 function array()
@@ -30,7 +31,7 @@ function array()
 			newcell[i][j] = 0;
 		}
 	}
-	begin();
+	// begin();
 }
 
 function begin()
